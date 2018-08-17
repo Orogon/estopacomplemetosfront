@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC  
+            "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"  
+            "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">  
+ 
+<tiles-definitions>  
+  
+   <!-- Base Definition -->
+   <definition name="base-definition"
+       template="/WEB-INF/views/layouts/defaultLayout.jsp">  
+       <put-attribute name="title" value="" />  
+       <put-attribute name="header" value="/WEB-INF/views/templates/header.jsp" />  
+       <put-attribute name="menu" value="/WEB-INF/views/templates/menu.jsp" />  
+       <put-attribute name="body" value="" />  
+       <put-attribute name="footer" value="/WEB-INF/views/templates/footer.jsp" />  
+   </definition>  
+  
+   <!-- Pagina de inicio -->
+   <definition name="inicio" extends="base-definition">  
+       <put-attribute name="title" value="Bienvenido" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp" />  
+   </definition>  
+   
+    <!-- Pagina de clientes-->
+   <definition name="clientes" extends="base-definition">  
+       <put-attribute name="title" value="Clientes" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/clientes.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de proveedores-->
+   <definition name="proveedores" extends="base-definition">  
+       <put-attribute name="title" value="Proveedores" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/proveedores.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de productos-->
+   <definition name="productos" extends="base-definition">  
+       <put-attribute name="title" value="Productos" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/productos.jsp" />  
+   </definition> 
+   
+   <!-- Pagina de remisiones-->
+   <definition name="remisiones" extends="base-definition">  
+       <put-attribute name="title" value="Remisiones" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/remisiones.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de facturas-->
+   <definition name="facturas" extends="base-definition">  
+       <put-attribute name="title" value="Facturas" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/facturas.jsp" />  
+   </definition> 
+  
+   <!-- Pagina de inventario-->
+   <definition name="inventario" extends="base-definition">  
+       <put-attribute name="title" value="Inventario" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/inventario.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de reportes-->
+   <definition name="reportes" extends="base-definition">  
+       <put-attribute name="title" value="Reportes" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/reportes.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de utilerias-->
+   <definition name="utilerias" extends="base-definition">  
+       <put-attribute name="title" value="Utilerias" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/utilerias.jsp" />  
+   </definition> 
+</tiles-definitions>
