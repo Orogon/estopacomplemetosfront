@@ -46,6 +46,7 @@ public class PoyectoECConfigurations extends WebMvcConfigurerAdapter{
      
     /**
      * Configure ResourceHandlers to serve static resources like CSS/ Javascript etc...
+     * @param registry
      */
      
     @Override
