@@ -22,30 +22,30 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
                     importe = calculaImporte($scope.cantidad, totalDescuentoPrecio);
                     var ahorroTotal = calcularAhorro($scope.cantidad, $scope.precio, $scope.descuento);
                     sumarAhorro(ahorroTotal);
-        }else{
-            $scope.descuento = 'No aplica';
-            importe = calculaImporte($scope.cantidad, $scope.precio);
-            totalDescuentoPrecio = '0.00';
-        }    
-        sumarImporte(importe);
-        $scope.totalRemision = totalVenta;
-        this.productos.push({
-            "cantidad" : $scope.cantidad,
-            "descripcion" : 'Brocha para pintura linea Mr.Pancho de 6 pulgadas',
-            "precio": $scope.precio,
-            "descuento": $scope.descuento,
-            "precioDesc": totalDescuentoPrecio,
-            "ahorroTotal": ahorroTotal,
-            "importe": importe
-        });
-            $scope.nomPro = '';
-            $scope.cantidad='';
-            $scope.precio='';
-            $scope.codpro='';
-            $scope.descuento='';
+                }else{
+                    $scope.descuento = 'No aplica';
+                    importe = calculaImporte($scope.cantidad, $scope.precio);
+                    totalDescuentoPrecio = '0.00';
+                }    
+                sumarImporte(importe);
+                $scope.totalRemision = totalVenta;
+                this.productos.push({
+                    "cantidad" : $scope.cantidad,
+                    "descripcion" : 'Brocha para pintura linea Mr.Pancho de 6 pulgadas',
+                    "precio": $scope.precio,
+                    "descuento": $scope.descuento,
+                    "precioDesc": totalDescuentoPrecio,
+                    "ahorroTotal": ahorroTotal,
+                    "importe": importe
+                });
+                    $scope.nomPro = '';
+                    $scope.cantidad='';
+                    $scope.precio='';
+                    $scope.codpro='';
+                    $scope.descuento='';
+            }
         }
-    }
-};
+    };
 
      $scope.removeItem = function(index){
         if(confirm('Desea Eliminar este producto de la remision')){            
