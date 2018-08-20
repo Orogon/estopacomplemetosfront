@@ -35,6 +35,7 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
             "precio": $scope.precio,
             "descuento": $scope.descuento,
             "precioDesc": totalDescuentoPrecio,
+            "ahorroTotal": ahorroTotal,
             "importe": importe
         });
             $scope.nomPro = '';
@@ -50,6 +51,7 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
         if(confirm('Desea Eliminar este producto de la remision')){            
             var producto = $scope.productos[index];
             restarImporte(producto.importe);
+            restarahorro(producto.ahorroTotal);
             $scope.productos.splice(index);
             $scope.totalRemision = totalVenta;
         }        
@@ -61,7 +63,7 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
        
 });
 
-  function validaDatos(cantidad, precio){
+function validaDatos(cantidad, precio){
     if(cantidad === 'undefined' || cantidad === undefined || cantidad === ""){
         alert('Lo sentimos, la cantidad nu puede venir vacia');
         return true;
@@ -71,7 +73,7 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
         return true;
     }
     return false;
-}
+};
 
  function calculaImporte(cantidad, precio){
     var cant = parseInt(cantidad);
@@ -97,8 +99,8 @@ function calcularAhorro(cantidad, precio, descuento){
     var totalSinDesc = cantidadConvert*precioConvert;
     var totalConDesc = cantidadConvert*precioConDescuento;   
     var ahorroTotal = totalSinDesc-totalConDesc;
-    return ahorroTotal
-}
+    return ahorroTotal;
+};
 
 function sumarAhorro(ahorroTotal){
     if(ahorro != null){
@@ -106,7 +108,7 @@ function sumarAhorro(ahorroTotal){
     }else{
         ahorro = ahorroTotal;
     }
-}
+};
 
 function sumarImporte(importe){
     if(totalVenta != null){
@@ -114,10 +116,14 @@ function sumarImporte(importe){
     }else{
         totalVenta = importe;
     }
-}
+};
 
 function restarImporte(importeRestar){
     totalVenta = totalVenta-importeRestar;
-}
+};
+
+function restarahorro(totalahorro){
+    ahorro = ahorro-totalahorro;
+};
 
 
