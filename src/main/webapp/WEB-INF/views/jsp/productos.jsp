@@ -4,51 +4,101 @@
     Author     : Jenipher Gonzalez L
 --%>
 
-<%@page contentType="text/html" pageEncoding="windows-1252"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8"> 
-        <meta name="viewport" content="width=device-width, initial-scale=1">   
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-    /* Set height of the grid so .sidenav can be 100% (adjust if needed) */
-    .row.content {height: 1500px}
-    
-    /* Set gray background color and 100% height */
-    .sidenav {
-      background-color: #f1f1f1;
-      height: 100%;
-    }
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
-        padding: 15px;
-      }
-      .row.content {height: auto;} 
-    }
-  </style>
-        <title>Productos</title>
-    </head>
-    <body>
-    <div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-9">
-      <h2 align="center"><small>Productos</small></h2>      
-        </div>
-      </div>
-    </div>
-    </body>
-</html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
+<script src="<c:url value='/resources/js/producto.js'/>"></script>
+
+<div class="container" ng-app="producto" ng-controller="productoCtrl">
+
+    <br/>
+
+    <div class="tab-content">        
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-4">
+                <h4>Producto</h4> 
+            </div>    
+        </div>
+        <br/><br/>
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="codPro">Código de producto:</label>
+                    <input type="text" class="form-control" id="codPro">
+                </div>   
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="nomProducto">Nombre de producto:</label>
+                    <input type="text" class="form-control" id="nomProducto">
+                </div>   
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="marca">Marca:</label>
+                    <input type="text" class="form-control" id="marca">
+                </div>   
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="subMarca">Sub marca:</label>
+                    <input type="text" class="form-control" id="subMarca">
+                </div>   
+            </div>
+        </div>
+        <br/>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label for="tipoPro">Tipo de producto:</label>
+                    <input type="text" class="form-control" id="tipoPro">
+                </div>   
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="precioCompra">Precio compra:</label>
+                    <input type="text" class="form-control" id="precioCompra">
+                </div>   
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="precioVenta">Precio venta:</label>
+                    <input type="text" class="form-control" id="precioVenta">
+                </div>   
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="iva">Precio c/ IVA:</label>
+                    <input type="number" class="form-control" id="iva">
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="existencia">Existencia:</label>
+                    <input type="text" class="form-control" id="cantidad">
+                </div>   
+            </div>
+        </div>
+        <br/>
+        <div class="row align-items-center justify-content-center">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="nomProv">Nombre de proveedor:</label>
+                    <input type="text" class="form-control" id="nomProv">
+                </div>   
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="desc">Descripción:</label>
+                    <textarea class="form-control" rows="4" id="descripcion"></textarea>
+                </div>   
+            </div>
+        </div>
+        <br/><br/>
+        <div clas="row">
+            <div class="form-group">
+                <button type="button" class="btn btn-secondary">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>       

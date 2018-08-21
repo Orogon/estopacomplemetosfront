@@ -21,10 +21,28 @@
        <put-attribute name="body" value="/WEB-INF/views/jsp/index.jsp" />  
    </definition>  
    
-    <!-- Pagina de clientes-->
+   <!-- Pagina de clientes-->
    <definition name="clientes" extends="base-definition">  
        <put-attribute name="title" value="Clientes" />  
        <put-attribute name="body" value="/WEB-INF/views/jsp/clientes.jsp" />  
+   </definition> 
+   
+   <!-- Pagina de modificar clientes-->
+   <definition name="modificarClientes" extends="base-definition">  
+       <put-attribute name="title" value="Modificar Clientes" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/modificarClientes.jsp" />  
+   </definition> 
+   
+   <!-- Pagina de eliminar clientes-->
+   <definition name="eliminarClientes" extends="base-definition">  
+       <put-attribute name="title" value="Eliminar Clientes" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/eliminarClientes.jsp" />  
+   </definition> 
+   
+   <!-- Pagina de buscar clientes-->
+   <definition name="buscarClientes" extends="base-definition">  
+       <put-attribute name="title" value="Buscar Clientes" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/buscarClientes.jsp" />  
    </definition> 
    
     <!-- Pagina de proveedores-->
@@ -33,11 +51,29 @@
        <put-attribute name="body" value="/WEB-INF/views/jsp/proveedores.jsp" />  
    </definition> 
    
-    <!-- Pagina de productos-->
+   <!-- Pagina de productos-->
    <definition name="productos" extends="base-definition">  
        <put-attribute name="title" value="Productos" />  
        <put-attribute name="body" value="/WEB-INF/views/jsp/productos.jsp" />  
+   </definition>
+   
+    <!-- Pagina de modificar productos-->
+   <definition name="modificarProductos" extends="base-definition">  
+       <put-attribute name="title" value="Modificar productos" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/modificarProductos.jsp" />  
    </definition> 
+   
+    <!-- Pagina de buscar productos-->
+   <definition name="buscarProductos" extends="base-definition">  
+       <put-attribute name="title" value="Buscar productos" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/buscarProductos.jsp" />  
+   </definition> 
+   
+    <!-- Pagina de eliminar productos-->
+   <definition name="eliminarProductos" extends="base-definition">  
+       <put-attribute name="title" value="Eliminar productos" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/eliminarProductos.jsp" />  
+   </definition>  
    
    <!-- Pagina de remisiones-->
    <definition name="remisiones" extends="base-definition">  
