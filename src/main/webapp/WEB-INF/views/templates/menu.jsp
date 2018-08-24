@@ -17,8 +17,8 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/remisiones">Generar remision</a>
-        <a class="dropdown-item" href="#">Modificar remision</a>
-        <a class="dropdown-item" href="#">Buscar remision</a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/modificarRemisiones">Modificar remision</a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/buscarRemisiones">Buscar remision</a>
       </div>
     </li>
     <!-- Dropdown Cliente-->
@@ -40,7 +40,7 @@
       </a>
       <div class="dropdown-menu">
         <a class="dropdown-item" href="${pageContext.request.contextPath}/productos">Nuevo producto</a>
-        <a class="dropdown-item" href="${pageContext.request.contextPath}/modificarProductos">Modificar productos</a>
+        <a class="dropdown-item" href="${pageContext.request.contextPath}/modificarProductos">Modificar producto</a>
         <a class="dropdown-item" href="${pageContext.request.contextPath}/buscarProductos">Buscar producto</a>
         <a class="dropdown-item" href="${pageContext.request.contextPath}/eliminarProductos">Eliminar producto</a>
       </div>

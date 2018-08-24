@@ -68,6 +68,16 @@ public class IndexController {
       return "remisiones";     
     }
     
+    @RequestMapping(value = {"/modificarRemisiones"}, method = RequestMethod.GET)
+    public String modificarRemisiones(String modificarRemisiones){         
+      return "modificarRemisiones";     
+    }
+    
+    @RequestMapping(value = {"/buscarRemisiones"}, method = RequestMethod.GET)
+    public String buscarRemisiones(String buscarRemisiones){         
+      return "buscarRemisiones";     
+    }
+    
     @RequestMapping(value = {"/facturas"}, method = RequestMethod.GET)
     public String facturas(String facturas){         
       return "facturas";     

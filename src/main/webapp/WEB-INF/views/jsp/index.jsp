@@ -10,7 +10,7 @@
             <h2 align="center"><small>ESTOPA Y  COMPLEMENTOS</small></h2>       
             <div class="row">
                 <div class="col-sm-12 text-center">
-                    <img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">
+                    <!--<img src="bandmember.jpg" class="img-circle" height="65" width="65" alt="Avatar">-->
                 </div>
             </div>
         </div>

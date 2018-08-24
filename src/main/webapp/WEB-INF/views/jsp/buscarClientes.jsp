@@ -52,7 +52,7 @@
         </div>
         <div class="row">
             <div class="col-sm-12">           
-                <button type="button" class="btn btn-success btn-block" ng-click="">Buscar</button>
+                <button type="button" class="btn btn-success btn-block" ng-click="buscar()">Buscar</button>
             </div>
         </div>
         <br/><br/>

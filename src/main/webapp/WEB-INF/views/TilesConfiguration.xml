@@ -81,6 +81,18 @@
        <put-attribute name="body" value="/WEB-INF/views/jsp/remisiones.jsp" />  
    </definition> 
    
+      <!-- Pagina de Modificar remisiones-->
+   <definition name="modificarRemisiones" extends="base-definition">  
+       <put-attribute name="title" value="Modificar remisiones" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/modificarRemisiones.jsp" />  
+   </definition> 
+   
+      <!-- Pagina de Buscar remisiones-->
+   <definition name="buscarRemisiones" extends="base-definition">  
+       <put-attribute name="title" value="Buscar remisiones" />  
+       <put-attribute name="body" value="/WEB-INF/views/jsp/buscarRemisiones.jsp" />  
+   </definition> 
+   
     <!-- Pagina de facturas-->
    <definition name="facturas" extends="base-definition">  
        <put-attribute name="title" value="Facturas" />  

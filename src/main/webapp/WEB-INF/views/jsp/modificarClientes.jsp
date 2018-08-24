@@ -143,14 +143,14 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="telCel">Teléfono celular:</label>
-                            <input type="text" class="form-control" id="telCel">
+                            <label for="telCell">Teléfono celular:</label>
+                            <input type="text" class="form-control" id="telCell">
                         </div>   
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="telFijo">Teléfono fijo:</label>
-                            <input type="text" class="form-control" id="telFijo">
+                            <label for="telFij">Teléfono fijo:</label>
+                            <input type="text" class="form-control" id="telFij">
                         </div>   
                     </div>
                 </div>
@@ -192,7 +192,7 @@
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
-                            <label for="tipoEstado">Estado:</label>
+                            <label for="tipoEst">Estado:</label>
                             <select class="form-control" id="tipoEst" >
                                 <option>Estado de México</option>
                                 <option>Ciudad de México</option>

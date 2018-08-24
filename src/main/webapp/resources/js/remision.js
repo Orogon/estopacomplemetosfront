@@ -10,7 +10,24 @@ var ahorro = null;
 app.controller('remisionCtrl', function($scope, $http, $window) {
     
     $scope.totalRemision = 0.00;
-    $scope.productos = [];    
+    $scope.productos = []; 
+    
+    $http({url:'http://192.168.200.18:8081/remisiones/consultarfolio',method:"GET"}).then(function(response) {
+        $scope.folioRemision = response.data.folioRemision;      
+    });
+    
+    $http({url:'http://192.168.200.18:8081/clientes/consultaclientes',method:"GET"}).then(function(response) {
+        switch (response.data.codigoOperacion){
+            case "0":
+                $scope.listaClientes = response.data.clientes;
+                break;
+            case "10":                
+                $scope.descripcionError = response.data.descripcion;
+                break;
+            default:
+                $scope.descripcionError = "Lo sentimos, ocurrio un error interno";
+        }       
+    });
     
     $scope.agregaTextoTabla = function(){
         if(!validaDatos($scope.cantidad, $scope.precio)){
@@ -47,20 +64,41 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
         }
     };
 
-     $scope.removeItem = function(index){
+    $scope.removeItem = function(index){
         if(confirm('Desea Eliminar este producto de la remision')){            
             var producto = $scope.productos[index];
             restarImporte(producto.importe);
             restarahorro(producto.ahorroTotal);
             $scope.productos.splice(index);
             $scope.totalRemision = totalVenta;
-        }        
+        }      
     };
     
-    $scope.datosDclick = function(){
-        alert("Hola");
+    $scope.traeCliente = function(cliente){
+        var json = "{\"nombreNegocio\":\""+cliente+"\"}";
+        $http({
+            url: 'http://192.168.200.18:8081/clientes/consultacliente',
+            method: "POST",
+            data: json
+        })
+        .success(function(response) {
+            switch (response.codigoOperacion){
+                case "0":
+                    $scope.calle = response.cliente.direccion.calle;
+                    $scope.nuInt = response.cliente.direccion.numInterior;
+                    $scope.numExt = response.cliente.direccion.numExterior;
+                    $scope.delMun = response.cliente.direccion.delgacionMunicipio;
+                    $scope.cp = response.cliente.direccion.codigoPostal;
+                    $scope.estado = response.cliente.direccion.estado;
+                    break;
+                default:
+                    $scope.descripcionError = "Lo sentimos, ocurrio un error interno";
+                    $scope.alertaError = true;                                  
+            }
+        }).error(function(response) {
+            console.log('Error: '+response);
+        });        
     };
-       
 });
 
 function validaDatos(cantidad, precio){
@@ -125,5 +163,9 @@ function restarImporte(importeRestar){
 function restarahorro(totalahorro){
     ahorro = ahorro-totalahorro;
 };
+
+function mayus(e) {
+    e.value = e.value.toUpperCase();
+}
 
 

@@ -16,7 +16,7 @@
         <div class="col-sm-3">
             <div class="form-group">
                 <label for="folio">Folio:</label>
-                <input type="text" class="form-control" id="folio" readonly="readonly">
+                <input type="text" class="form-control" id="folio" readonly="readonly" ng-model="folioRemision">
             </div>   
         </div>
         <div class="col-sm-3">
@@ -37,13 +37,16 @@
     </ul>
 
     <div class="tab-content">        
-        <div id="cliente" class="container tab-pane active">
-            <br/><br/>
+        <div id="cliente" class="container tab-pane active">            
+            <br/><br/>            
             <div class="row row align-items-center justify-content-center">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="nomNeg">Nombre del negocio:</label>
-                        <input type="text" class="form-control" id="nomNeg">
+                        <input list="clientes" class="form-control" data-ng-model="cliente" onkeyup="mayus(this);" ng-keyup="$event.keyCode == 13 ? traeCliente(cliente) : null">
+                        <datalist id="clientes">
+                            <option data-ng-repeat="cliente in listaClientes | limitTo:10" value='{{cliente.nombreNegocio}}'/>
+                        </datalist> 
                     </div>   
                 </div>
                 <div class="col-sm-2">
@@ -66,19 +69,69 @@
                     </div>
                 </div>
             </div>
+            <br/>
+            <center><b><div style="color:#FF0000;">{{descripcionError}}</div></b></center>
+            <br/><br/>
+            <div class="row">
+                <div class="col-sm-12">
+                                    <h4 align="center">Dirección</h4>
+                <hr>
+                </div>
+            </div>
+            <div class="row row align-items-center justify-content-center">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="calle">Calle:</label>
+                        <input type="text" class="form-control" id="calle" readonly="readonly" ng-model="calle">
+                    </div>   
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="numInt">Número interior:</label>
+                        <input type="text" class="form-control" id="numInt" readonly="readonly" ng-model="nuInt">
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="numExt">Número exterior:</label>
+                        <input type="text" class="form-control" id="numExt" readonly="readonly" ng-model="numExt">
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="delMun">Delegación o municipio:</label>
+                        <input type="text" class="form-control" id="delMun" readonly="readonly" ng-model="delMun">
+                    </div>
+                </div>
+            
         </div>
+            <div class="row row align-items-center justify-content-center">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="cp">CP:</label>
+                        <input type="text" class="form-control" id="cp" readonly="readonly" ng-model="cp">
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="estado">Estado:</label>
+                        <input type="text" class="form-control" id="estado" readonly="readonly" ng-model="estado">
+                    </div>
+                </div>
+            </div>
+                    </div>
         <div id="productos" class="container tab-pane fade"><br>     
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="codPro">Código de producto:</label>
-                        <input type="text" class="form-control" id="codPro" ng-model="codpro">
+                        <input type="text" class="form-control" id="codPro" ng-model="codpro" onkeyup="mayus(this);">
                     </div>   
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="nomPro">Nombre de producto:</label>
-                        <input type="text" class="form-control" ng-model="nomPro">
+                        <input type="text" class="form-control" ng-model="nomPro" onkeyup="mayus(this);">
                     </div>
                 </div>
             </div>

@@ -25,8 +25,8 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-sm-3">
                 <div class="form-group">
-                    <label for="nomCliente">Código del producto:</label>
-                    <input type="text" class="form-control" id="nomCliente">
+                    <label for="codPro">Código del producto:</label>
+                    <input type="text" class="form-control" id="codPro">
                 </div>   
             </div>
             <div class="vl">        
@@ -96,6 +96,12 @@
                     <div class="form-group">
                         <label for="precioVenta">Precio venta:</label>
                         <input type="text" class="form-control" id="precioVenta">
+                    </div>   
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label for="iva">IVA:</label>
+                        <input type="text" class="form-control" id="iva">
                     </div>   
                 </div>
                 <div class="col-sm-2">
