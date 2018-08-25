@@ -10,7 +10,9 @@ var ahorro = null;
 app.controller('remisionCtrl', function($scope, $http, $window) {
     
     $scope.totalRemision = 0.00;
-    $scope.productos = []; 
+    $scope.productos = [];
+    var descProducto;
+    $scope.fechaRemision = new Date();
     
     $http({url:'http://192.168.200.18:8081/remisiones/consultarfolio',method:"GET"}).then(function(response) {
         $scope.folioRemision = response.data.folioRemision;      
@@ -29,9 +31,71 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
         }       
     });
     
+    $http({url:'http://192.168.200.18:8081/productos/consultaproductos',method:"GET"}).then(function(response) {
+        switch (response.data.codigoOperacion){
+            case "0":
+                $scope.listaProductos = response.data.productos;
+                $scope.listaProductos1 = response.data.productos;
+                break;
+            case "8":                
+                $scope.descripcionErrorProd = response.data.descripcion;
+                break;
+            default:
+                $scope.descripcionErrorProd = "Lo sentimos, ocurrio un error interno";
+        }       
+    });
+    
+    $scope.traeProductoXCod = function(codProducto){
+        var json = "{\"codigoProducto\":\""+codProducto+"\"}";        
+        $http({
+            url: 'http://192.168.200.18:8081/productos/consultaproducto',
+            method: "POST",
+            data: json
+        })
+        .success(function(response) {
+            switch (response.codigoOperacion){
+                case "0":
+                    descProducto = response.producto.descripcionProducto;                    
+                    $scope.productoNom = response.producto.nombreProducto;
+                    $scope.productoCod = response.producto.codigoProducto;                    
+                    $scope.precio = parseFloat(response.producto.precioVenta);                    
+                    break;
+                default:
+                    $scope.descripcionError = "Lo sentimos, ocurrio un error interno";
+                    $scope.alertaError = true;                                  
+            }
+        }).error(function(response) {
+            console.log('Error: '+response);
+        });      
+    };
+    
+    $scope.traeProductoXNom = function(nomProducto){
+        var json = "{\"nombreProducto\":\""+nomProducto+"\"}";
+        $http({
+            url: 'http://192.168.200.18:8081/productos/consultaproducto',
+            method: "POST",
+            data: json
+        })
+        .success(function(response) {
+            switch (response.codigoOperacion){
+                case "0":
+                    descProducto = response.producto.descripcionProducto;                    
+                    $scope.productoNom = response.producto.nombreProducto;
+                    $scope.productoCod = response.producto.codigoProducto;                    
+                    $scope.precio = parseFloat(response.producto.precioVenta);                    
+                    break;
+                default:
+                    $scope.descripcionError = "Lo sentimos, ocurrio un error interno";
+                    $scope.alertaError = true;                                  
+            }
+        }).error(function(response) {
+            console.log('Error: '+response);
+        });      
+    };
+    
     $scope.agregaTextoTabla = function(){
         if(!validaDatos($scope.cantidad, $scope.precio)){
-            if(confirm('Desea agregar este producto: \nProducto: ' + $scope.nomPro +'\nPrecio: $'+$scope.precio)){
+            if(confirm('Desea agregar este producto: \nProducto: ' + $scope.productoNom +'\nPrecio: $'+$scope.precio)){
                 var totalDescuentoPrecio = null;
                 var importe = null;
                 if($scope.descuento != null && $scope.descuento != ''){
@@ -47,19 +111,21 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
                 sumarImporte(importe);
                 $scope.totalRemision = totalVenta;
                 this.productos.push({
-                    "cantidad" : $scope.cantidad,
-                    "descripcion" : 'Brocha para pintura linea Mr.Pancho de 6 pulgadas',
-                    "precio": $scope.precio,
+                    "cantidadProducto" : $scope.cantidad,
+                    "codigoProducto" : $scope.productoCod,
+                    "descripcion" : descProducto,
+                    "precioVenta": $scope.precio,
                     "descuento": $scope.descuento,
                     "precioDesc": totalDescuentoPrecio,
                     "ahorroTotal": ahorroTotal,
                     "importe": importe
                 });
-                    $scope.nomPro = '';
+                    $scope.productoNom = '';
                     $scope.cantidad='';
                     $scope.precio='';
-                    $scope.codpro='';
+                    $scope.productoCod='';
                     $scope.descuento='';
+                    descProducto = '';
             }
         }
     };
@@ -72,6 +138,50 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
             $scope.productos.splice(index);
             $scope.totalRemision = totalVenta;
         }      
+    };
+    
+    $scope.generarVenta = function(){
+        var objectList = angular.toJson($scope.productos);
+        var json="{\"nombreNegocio\":\""+$scope.cliente+"\","+
+            "\"tipoVenta\":\""+$scope.tipoVenta+"\","+
+            "\"diasCredito\":\""+$scope.diasCredito+"\","+
+            "\"folioNota\":\""+$scope.folioRemision+"\","+
+            "\"fechaRemision\":\""+$scope.fechaRemision+"\","+
+            "\"venta\":"+objectList+","+
+            "\"direccionNegocio\":\""+$scope.calle+" "+$scope.nuInt+"\","+
+            "\"coloniaNegocio\":\""+$scope.colonia+"\","+
+            "\"estadoNegocio\":\""+$scope.estado+"\","+
+            "\"ahorro\":\""+ahorro+"\","+
+            "\"totalNotaSindescuento\":\""+totalVenta+"\","+
+            "\"totalNotaConDescuento\":\""+totalVenta+
+            "\"}";
+        $http({
+            url: 'http://192.168.200.18:8081/remisiones/realizaremision',
+            method: "POST",
+            data: json
+        })
+        .success(function(response) {
+            alert(response.codigoOperacion);
+            switch (response.codigoOperacion){                
+                case "0":
+                    alert("Todo chingon bye");
+                    location.reload();
+                    break;
+                case "5":
+                    alert(response.descripcion);
+                    location.reload();
+                    break;
+                case "6":
+                    alert(response.descripcion);
+                    location.reload();
+                    break;
+                default:
+                    alert("Ocurrio un error que no se que pedo");
+            }
+        }).error(function(response) {
+            console.log('Error: '+response);
+        }); 
+   
     };
     
     $scope.traeCliente = function(cliente){
@@ -88,6 +198,7 @@ app.controller('remisionCtrl', function($scope, $http, $window) {
                     $scope.nuInt = response.cliente.direccion.numInterior;
                     $scope.numExt = response.cliente.direccion.numExterior;
                     $scope.delMun = response.cliente.direccion.delgacionMunicipio;
+                    $scope.colonia = response.cliente.direccion.colonia;
                     $scope.cp = response.cliente.direccion.codigoPostal;
                     $scope.estado = response.cliente.direccion.estado;
                     break;

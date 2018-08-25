@@ -23,15 +23,24 @@
         </div>
         <br/><br/>
         <div class="row align-items-center justify-content-center">
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label for="codCliente">Código de negocio</label>
+                    <input type="text" class="form-control" id="codCliente">
+                </div>   
+            </div>
+            <div class="vl">        
+            </div>
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="nomCliente">Nombre del negocio:</label>
                     <input type="text" class="form-control" id="nomCliente">
                 </div>   
             </div>
-            <div class="vl">        
-            </div>
-            <div class="col-sm-3">
+        </div>
+        <br/>
+            <div class="row align-items-center justify-content-center">
+            <div class="col-sm-2">
                 <div class="form-group">
                     <label for="nomRes">Nombre del responsable:</label>
                     <input type="text" class="form-control" id="nomRes">
@@ -56,38 +65,26 @@
             </div>
         </div>
         <br/><br/>
-        <div class="row align-items-center justify-content-center">
+        <div class="row">
             <div class="col-sm-12">
                 <table class="table table-striped">
                     <tr>
-                        <th>ID del negocio</th>
                         <th>Nombre del negocio</th>
                         <th>Teléfono fijo</th>
-                        <th>Teléfono celular</th>
                         <th>Correo</th>
                         <th>RFC</th>
                         <th>Nombre del responsable</th>
                         <th>Apellido paterno</th>
-                        <th>Teléfono celular</th>
-                        <th>Calle</th>
-                        <th>Número interior</th>
-                        <th>Número exterior</th>
-                        <th>Delegación o mucipio</th>
+                        <th>Apellido materno</th>
                     </tr>
                     <tr ng-repeat="x in productos" ng-dbclick="datosDclick">
-                        <td>{{x.idCliente}}</td>
                         <td>{{x.nomCliente}}</td>
-                        <td>{{x.telFijo}}</td>
-                        <td>{{x.telCel}}</td>
-                        <td>{{x.correo}}</td>
-                        <td>{{x.rfc}}</td>
-                        <td>{{x.nomRes}}</td>
-                        <td>{{x.apePat}}</td>
-                        <td>{{x.telCell}}</td>
-                        <td>{{x.calle}}</td>
-                        <td>{{x.numInt}}</td>
-                        <td>{{x.numExt}}</td>
-                        <td>{{x.delMun}}</td>
+                        <td>{{x.telFijoNegocio}}</td>
+                        <td>{{x.correoElec}}</td>
+                        <td>{{x.rfcNego}}</td>
+                        <td>{{x.nomResp}}</td>
+                        <td>{{x.apePatResp}}</td>
+                        <td>{{x.apeMatResp}}</td>
                     </tr>
             </div>
         </div> 

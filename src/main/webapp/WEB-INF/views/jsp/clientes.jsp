@@ -26,10 +26,10 @@
     <div class="tab-content">        
         <div id="cliente" class="container tab-pane active">
             <br/><br/>
-            <div class="row">
+            <div class="row row align-items-center justify-content-center">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="codCliente">ID de negocio:</label>
+                        <label for="codCliente">Código de negocio:</label>
                         <input type="text" class="form-control" id="codCliente" ng-model="codCliente" onkeyup="mayus(this);">
                     </div>   
                 </div>
@@ -39,27 +39,27 @@
                         <input type="text" class="form-control" id="nomCliente" ng-model="nomCliente" onkeyup="mayus(this);">
                     </div>   
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="telFijo">Teléfono fijo:</label>
                         <input type="number" class="form-control" id="telFijo" ng-model="telFijoNegocio">
                     </div>   
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="telCel">Teléfono celular:</label>
                         <input type="number" class="form-control" id="telCel" ng-model="telCelNegocio">
                     </div>   
                 </div>
             </div>
-            <div class="row align-items-center justify-content-center">
+            <div class="row row align-items-center justify-content-center">
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label for="correo">Correo electrónico:</label>
                         <input type="mail" class="form-control" id="correo" ng-model="correoElec">
                     </div>   
                 </div>
-                <div class="col-sm-3">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="rfc">RFC:</label>
                         <input type="text" class="form-control" id="rfc" ng-model="rfcNego" onkeyup="mayus(this);">
@@ -72,7 +72,7 @@
                     <hr>
                 </div>
             </div>
-            <div class="row">
+            <div class="row row align-items-center justify-content-center">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="nomRes">Nombre(s) del responsable:</label>
@@ -92,14 +92,14 @@
                     </div>   
                 </div>
             </div>
-            <div class="row align-items-center justify-content-center">
-                <div class="col-sm-4">
+            <div class="row row align-items-center justify-content-center">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="telCell">Teléfono celular:</label>
                         <input type="number" class="form-control" id="telCell" ng-model="telCelResp">
                     </div>   
                 </div>
-                <div class="col-sm-4">
+                <div class="col-sm-2">
                     <div class="form-group">
                         <label for="telFij">Teléfono fijo:</label>
                         <input type="number" class="form-control" id="telFij" ng-model="telFijResp">
@@ -109,7 +109,7 @@
         </div>
 
         <div id="direccion" class="container tab-pane fade"><br>     
-            <div class="row align-items-end justify-content-center">
+            <div class="row row align-items-center justify-content-center">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="calle">Calle:</label>
@@ -144,24 +144,25 @@
                     </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label for="cp">Código Postal:</label>
+                        <label for="codigoPostal">Código Postal:</label>
                         <input type="number" class="form-control" id="codigoPostal" ng-model="codigoPostal">
                     </div>
                 </div>
                 <div class="col-sm-3">
                     <div class="form-group">
-                        <label for="tipoEst">Estado:</label>
+                        <label for="estadoNeg">Estado:</label>
                         <select class="form-control" id="tipoEst" ng-model="estadoNego">
                             <option>Estado de México</option>
                             <option>Ciudad de México</option>
                         </select>
+                        
                     </div>
                 </div>
             </div>
             <br/><br/>
             <div clas="row">
                 <div class="form-group">
-                    <button type="button" class="btn btn-secondary" ng_click="guardarCliente()">Guardar</button>
+                    <button type="button" class="btn btn-success btn-block" ng-click="guardarCliente()">Guardar</button>
                 </div>
             </div>
         </div>
