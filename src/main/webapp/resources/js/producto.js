@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+//Creación de una instancia de angular
 var app = angular.module('producto', []);
 
 
@@ -13,6 +13,7 @@ app.controller('productoCtrl', function($scope, $http, $window) {
     
     $scope.guardaProducto = function(){
         $scope.alertaError = false;
+        
         var json="{\"codigoProducto\":\""+$scope.codProducto+"\","+
                 "\"marcaProducto\":\""+$scope.marcaProducto+"\","+
                 "\"submarcaProducto\":\""+$scope.submarcaProducto+"\","+

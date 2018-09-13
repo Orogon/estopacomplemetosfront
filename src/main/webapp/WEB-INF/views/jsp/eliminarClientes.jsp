@@ -68,14 +68,14 @@
                         <th>RFC</th>
                         <th>Acciones</th>
                     </tr>
-                    <tr ng-repeat="x in productos" ng-dbclick="datosDclick">
+                    <tr ng-repeat="x in clientes" ng-dbclick="datosDclick">
                         <td>{{x.codCliente}}</td>
                         <td>{{x.nomCliente}}</td>
                         <td>{{x.telFijo}}</td>
                         <td>{{x.telCel}}</td>
                         <td>{{x.correo}}</td>
                         <td>{{x.rfc}}</td>
-                        <td><button class="btn btn-outline-danger btn-block" data-ng-click="">Eliminar</button></td>
+                        <td><button class="btn btn-outline-danger btn-block" data-ng-click="eliminarCliente()">Eliminar</button></td>
                     </tr>
             </div>
         </div> 

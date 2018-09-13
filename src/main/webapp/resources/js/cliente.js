@@ -48,6 +48,9 @@ app.controller('clienteCtrl', function($scope, $http, $window) {
     
 });
 
+  
+
 function mayus(e) {
     e.value = e.value.toUpperCase();
 }
+
