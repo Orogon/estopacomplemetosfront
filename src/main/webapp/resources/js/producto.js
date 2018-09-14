@@ -23,7 +23,7 @@ app.controller('productoCtrl', function($scope, $http, $window) {
                 "\"precioCompra\":\""+$scope.precioCompraProd+
                 "\"}";        
         $http({
-            url: 'http://192.168.200.18:8081/productos/registraproducto',
+            url: 'http://localhost:8081/productos/registraproducto',
             method: "POST",
             data: json
         })

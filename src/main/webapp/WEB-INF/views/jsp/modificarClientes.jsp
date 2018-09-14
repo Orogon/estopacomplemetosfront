@@ -26,7 +26,7 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="nomCliente">Nombre del negocio:</label>
-                    <input type="text" class="form-control" id="nomCliente">
+                    <input type="text" class="form-control" id="nomCliente" ng-model="nomCliente">
                 </div>   
             </div>
             <div class="vl">        
@@ -34,28 +34,28 @@
             <div class="col-sm-3">
                 <div class="form-group">
                     <label for="nomRes">Nombre del responsable:</label>
-                    <input type="text" class="form-control" id="nomRes">
+                    <input type="text" class="form-control" id="nomRes" ng-model="nomResp">
                 </div>   
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="apePat">Apellido paterno:</label>
-                    <input type="text" class="form-control" id="apePat">
+                    <input type="text" class="form-control" id="apePat" ng-model="apePatResp">
                 </div>   
             </div>
             <div class="col-sm-2">
                 <div class="form-group">
                     <label for="apeMat">Apellido materno:</label>
-                    <input type="text" class="form-control" id="apeMat">
+                    <input type="text" class="form-control" id="apeMat" ng-model="apeMatResp">
                 </div>   
             </div>
         </div>
         <div class="row">
             <div class="col-sm-6">           
-                <button type="button" class="btn btn-success btn-block" ng-click="">Buscar</button>
+                <button type="button" class="btn btn-success btn-block" ng-click="buscarCliente()">Buscar</button>
             </div>
             <div class="col-sm-6">
-                <button type="button" class="btn btn-sucess btn-block" ng-click="">Modificar</button>
+                <button type="button" class="btn btn-sucess btn-block" ng-click="modificarCliente()">Modificar</button>
             </div>
         </div>
         <div class="row">
@@ -78,25 +78,25 @@
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="idCliente">ID de negocio:</label>
-                            <input type="text" class="form-control" id="idCliente" readonly="readonly">
+                            <input type="text" class="form-control" id="idCliente" readonly="readonly" ng-model="codCliente">
                         </div>   
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="nomCliente">Nombre de negocio:</label>
-                            <input type="text" class="form-control" id="nomCliente" readonly="readonly">
+                            <input type="text" class="form-control" id="nomCliente" readonly="readonly" ng-model="nomCliente">
                         </div>   
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="telFijo">Teléfono fijo:</label>
-                            <input type="text" class="form-control" id="telFijo">
+                            <input type="text" class="form-control" id="telFijo" ng-model="telFijoNegocio">
                         </div>   
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="telCel">Teléfono celular:</label>
-                            <input type="text" class="form-control" id="telCel">
+                            <input type="text" class="form-control" id="telCel" ng-model="telCelNegocio">
                         </div>   
                     </div>
                 </div>
@@ -104,13 +104,13 @@
                     <div class="col-sm-6">
                         <div class="form-group">
                             <label for="correo">Correo electrónico:</label>
-                            <input type="mail" class="form-control" id="correo">
+                            <input type="mail" class="form-control" id="correo" ng-model="correoElec">
                         </div>   
                     </div>
                     <div class="col-sm-3">
                         <div class="form-group">
                             <label for="rfc">RFC:</label>
-                            <input type="text" class="form-control" id="rfc" readonly="readonly">
+                            <input type="text" class="form-control" id="rfc" readonly="readonly" ng-model="rfcNego">
                         </div>   
                     </div>
                 </div>
@@ -124,19 +124,19 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="nomRes">Nombre(s) del responsable:</label>
-                            <input type="text" class="form-control" id="nomRes">
+                            <input type="text" class="form-control" id="nomRes" ng-model="nomResp">
                         </div>   
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="apePat">Apellido paterno:</label>
-                            <input type="text" class="form-control" id="apePat">
+                            <input type="text" class="form-control" id="apePat" ng-model=apePatResp">
                         </div>   
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <label for="apeMat">Apellido paterno:</label>
-                            <input type="text" class="form-control" id="apeMat">
+                            <label for="apeMat">Apellido materno:</label>
+                            <input type="text" class="form-control" id="apeMat" ng-model="apeMatResp">
                         </div>   
                     </div>
                 </div>
@@ -144,13 +144,13 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="telCell">Teléfono celular:</label>
-                            <input type="text" class="form-control" id="telCell">
+                            <input type="text" class="form-control" id="telCell" ng-model="telCelResp">
                         </div>   
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="telFij">Teléfono fijo:</label>
-                            <input type="text" class="form-control" id="telFij">
+                            <input type="text" class="form-control" id="telFij" ng-model="telFijResp">
                         </div>   
                     </div>
                 </div>
@@ -161,25 +161,25 @@
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="calle">Calle:</label>
-                            <input type="text" class="form-control" id="calle">
+                            <input type="text" class="form-control" id="calle" ng-model="nombreCalle">
                         </div>   
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="numInt">Número interior:</label>
-                            <input type="text" class="form-control" id="numInt" >
+                            <input type="text" class="form-control" id="numInt" ng-model="numInt">
                         </div>
                     </div>
                     <div class="col-sm-2">
                         <div class="form-group">
                             <label for="numExt">Número exterior:</label>
-                            <input type="text" class="form-control" id="numExt">
+                            <input type="text" class="form-control" id="numExt" ng-model="numExt">
                         </div>
                     </div>
                     <div class="col-sm-4">
                         <div class="form-group">
                             <label for="delMun">Delegación o municipio:</label>
-                            <input type="text" class="form-control" id="delMun">
+                            <input type="text" class="form-control" id="delMun" ng-model="">
                         </div>
                     </div>
                 </div>            
